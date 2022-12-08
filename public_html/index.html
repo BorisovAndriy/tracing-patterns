@@ -169,7 +169,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">@</span>
                         </div>
-                        <input type="text" class="form-control" id="username" placeholder="https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?ulp={lpurl}&pt=1" required>
+                        <input type="text" class="form-control" id="input_patterns_1" placeholder="https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?ulp={lpurl}&pt=1" required>
                         <div class="invalid-feedback" style="width: 100%;">
                             Your username is required.
                         </div>
@@ -200,7 +200,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">@</span>
                         </div>
-                        <input type="text" class="form-control" id="username" placeholder="865-829-6080" required>
+                        <input type="text" class="form-control" id="input_code" placeholder="865-829-6080" required>
                         <div class="invalid-feedback" style="width: 100%;">
                             Your username is required.
                         </div>
@@ -281,11 +281,11 @@
 
                 <div class="d-block my-2">
                     <div class="custom-control custom-radio">
-                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                        <input id="credit" name="input_type" type="radio" class="custom-control-input" value="cd" checked required>
                         <label class="custom-control-label" for="credit">Динаміка</label>
                     </div>
                     <div class="custom-control custom-radio">
-                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                        <input id="debit" name="input_type" type="radio" class="custom-control-input" value="cc" required>
                         <label class="custom-control-label" for="debit">Контекст</label>
                     </div>
                     <!--
@@ -396,17 +396,50 @@
 
         $("#getResult").click(function() {
 
-            var test_url_1 = "https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?ulp={lpurl}&pt=1";
-            var test_acc_code = "865-829-6080";
-            var test_tesult = "https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?subid3=(865-829-6080)-cd&ulp={lpurl}&pt=1";
+            //var test_url_1 = "https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?ulp={lpurl}&pt=1";
+          //  $('#input_patterns_1').val("https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?ulp={lpurl}&pt=1")
+          //  $('#input_code').val("865-829-6080");
+
+            var test_url_1 = $('#input_patterns_1').val();
+            var test_acc_code = $('#input_code').val();
+
+            var admitad_url = test_url_1.substr(0,55);
+            var admitad_url_params = test_url_1.substr(57);
+
+
+            //var input_type = $('name="input_type"').val();
+            //var input_type = 'cd';
+
+            var input_type = $('input[name=input_type]:checked').val()
+
+            //name="input_code"
+            console.log('input_type: '+ input_type);
+
+            console.log('test_url_1: '+ test_url_1);
+            console.log('test_acc_code: '+ test_acc_code);
+
+            console.log('admitad_url: '+ admitad_url);
+            console.log('admitad_url_params: '+ admitad_url_params);
+
+            var result = admitad_url+'/?subid3=('+test_acc_code+')-'+input_type+'&'+admitad_url_params;
+
+            console.log('result: '+ result);
+
+            //var test_acc_code = "";
+            //var test_tesult =   "https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?subid3=(865-829-6080)-cd&ulp={lpurl}&pt=1";  //https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?subid3=(865-829-6080)-cd&ulp={lpurl}&pt=1
+
+            /*
+            var admitad_url = test_tesult.substr(0,55);
+            var admitad_url_params = test_tesult.substr(56);
+            var type = 'cd';
+
+            var result = admitad_url+'/'+admitad_url_params;
+            */
 
 
 
 
-
-
-
-            $("#outResult").val(test_tesult).select();
+            $("#outResult").val(result).select();
 
 
             //var copyText = document.getElementById("#outResult");
@@ -421,28 +454,32 @@
 
 
             if (document.execCommand('copy')) {
-                console.log('coping...');
+                //console.log('coping...');
 
-                var admitad_url = test_tesult.substr(0,55);
-                var admitad_url_params = test_tesult.substr(56,-1);
-                var type = 'cd';
-                var result = '?subid3=('+test_acc_code+')'+'-'+type;
+
+                //var result = admitad_url+'/?subid3=('+test_acc_code+')'+'-'+type;//+admitad_url_params;
 
                 //result
                 //alert(admitad_url.split('?')) ;// массив [12, 34, 56]
 
-                console.log('admitad_url: '+ admitad_url);
-                console.log('admitad_url_params: '+ admitad_url_params);
+                //console.log('admitad_url: '+ admitad_url);
+                //console.log('admitad_url_params: '+ admitad_url_params);
 
 
-                console.log(test_url_1);
-                console.log(test_acc_code);
-                console.log(test_tesult);
-                console.log('result: ' + result);
+                //console.log(test_url_1);
+                //console.log('admitad_url: '  + admitad_url);
+                //console.log('admitad_url_params: '+ admitad_url_params);
+
+
+
+
+
+                //console.log('result: ' + result);
                 //test_url_1
                 //test_acc_code
                 //test_tesult
-                console.log( "Result coped to memory" );
+                //console.log( "Result coped to memory" );
+                //alert("Result coped to memory");
             }
 
             event.preventDefault();
