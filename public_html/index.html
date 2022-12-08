@@ -14,6 +14,10 @@
         if (jQuery) {
             // jQuery is loaded
             //alert("jQuery is loaded");
+
+
+
+
         } else {
             // jQuery is not loaded
             alert("jQuery is not loaded");
@@ -165,7 +169,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">@</span>
                         </div>
-                        <input type="text" class="form-control" id="username" placeholder="https://ad.admitad.com/g/wjftq4ggdkb9a1285edbdcd8f35f57/?ulp={lpurl}&pt=1" required>
+                        <input type="text" class="form-control" id="username" placeholder="https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?ulp={lpurl}&pt=1" required>
                         <div class="invalid-feedback" style="width: 100%;">
                             Your username is required.
                         </div>
@@ -176,7 +180,7 @@
     -->
 
 
-
+<!--
                 <div class="mb-3">
                     <label for="username">Суффікс кінцевого URL</label>
                     <div class="input-group">
@@ -189,14 +193,14 @@
                         </div>
                     </div>
                 </div>
-
+-->
                 <div class="mb-3">
                     <label for="username">Номер аккаунту</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">@</span>
                         </div>
-                        <input type="text" class="form-control" id="username" placeholder="123-456-789" required>
+                        <input type="text" class="form-control" id="username" placeholder="865-829-6080" required>
                         <div class="invalid-feedback" style="width: 100%;">
                             Your username is required.
                         </div>
@@ -337,13 +341,13 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">@</span>
             </div>
-            <input type="text" class="form-control" id="username" placeholder="https://ad.admitad.com/g/wjftq4ggdkb9a1285edbdcd8f35f57/?ulp={lpurl}&pt=1" required>
+            <input type="text" class="form-control" id="outResult" placeholder="https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?subid3=(865-829-6080)-cd&ulp={lpurl}&pt=1" required>
             <div class="invalid-feedback" style="width: 100%;">
                 Your username is required.
             </div>
         </div>
     </div>
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Сформувати шаблон</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit" id="getResult">Сформувати шаблон</button>
             </form>
         </div>
     </div>
@@ -362,9 +366,89 @@
 
 <script>
     // Example starter JavaScript for disabling form submissions if there are invalid fields
+
+    /**
+     *
+     *  https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?ulp={lpurl}&pt=1
+
+        865-829-6080
+
+        https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?subid3=(865-829-6080)-cd&ulp={lpurl}&pt=1
+     *
+     * */
     (function() {
         'use strict';
 
+        /*
+        *
+
+        alert( "Handler for .submit() called." );
+
+
+
+
+        $( "#other" ).click(function() {
+            $( "#target" ).submit();
+        });
+
+        *
+         */
+
+        $("#getResult").click(function() {
+
+            var test_url_1 = "https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?ulp={lpurl}&pt=1";
+            var test_acc_code = "865-829-6080";
+            var test_tesult = "https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?subid3=(865-829-6080)-cd&ulp={lpurl}&pt=1";
+
+
+
+
+
+
+
+            $("#outResult").val(test_tesult).select();
+
+
+            //var copyText = document.getElementById("#outResult");
+            //console.log('test');
+            //console.log("Hello from Firefox code"); //output messages to the console</pre>
+            //copyText.select();
+
+            //document.execCommand("copy");
+            //alert("Copied the text: " + copyText);
+
+
+
+
+            if (document.execCommand('copy')) {
+                console.log('coping...');
+
+                var admitad_url = test_tesult.substr(0,55);
+                var admitad_url_params = test_tesult.substr(56,-1);
+                var type = 'cd';
+                var result = '?subid3=('+test_acc_code+')'+'-'+type;
+
+                //result
+                //alert(admitad_url.split('?')) ;// массив [12, 34, 56]
+
+                console.log('admitad_url: '+ admitad_url);
+                console.log('admitad_url_params: '+ admitad_url_params);
+
+
+                console.log(test_url_1);
+                console.log(test_acc_code);
+                console.log(test_tesult);
+                console.log('result: ' + result);
+                //test_url_1
+                //test_acc_code
+                //test_tesult
+                console.log( "Result coped to memory" );
+            }
+
+            event.preventDefault();
+        });
+
+/*
         window.addEventListener('load', function() {
             // Fetch all the forms we want to apply custom Bootstrap validation styles to
             var forms = document.getElementsByClassName('needs-validation');
@@ -380,6 +464,9 @@
                 }, false);
             });
         }, false);
+
+        */
+
     })();
 </script>
 </body>
