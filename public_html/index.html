@@ -1,520 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>Шаблони відстеження</title>
 
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="css/local_style.css" rel="stylesheet">
 
-<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-
-<script src="bootstrap/js/bootstrap.js"></script>
-<script src="js/jquery.validate.min.js"></script>
-<script src="js/jquery-3.6.1.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        if (jQuery) {
-            // jQuery is loaded
-            //alert("jQuery is loaded");
-
-
-
-
-        } else {
-            // jQuery is not loaded
-            alert("jQuery is not loaded");
-        }
-    });
-</script>
-
-<style>
-    .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-    }
-
-    @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-        }
-    }
-
-    .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-    }
-
-    .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-    }
-
-    .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-    }
-
-    .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-    }
-
-    .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-    }
-</style>
-
-</head>
-
-<body class="bg-light">
-
-<div class="container">
-    <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-
-        <h2>Утиліта формування шаблонів відстеження</h2>
-        <p class="lead">Вкажіть данні у формі та натисніть кнопку</p>
-    </div>
-<!--
-    <div class="row">
-        <div class="col-md-4 order-md-2 mb-4">
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-muted">Your cart</span>
-                <span class="badge badge-secondary badge-pill">3</span>
-            </h4>
-            <ul class="list-group mb-3">
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Product name</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$12</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Second product</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$8</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Third item</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$5</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between bg-light">
-                    <div class="text-success">
-                        <h6 class="my-0">Promo code</h6>
-                        <small>EXAMPLECODE</small>
-                    </div>
-                    <span class="text-success">-$5</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Total (USD)</span>
-                    <strong>$20</strong>
-                </li>
-            </ul>
-
-            <form class="card p-2">
+        <script src="js/jquery-3.6.1.min.js"></script>
+        <script src="bootstrap/js/bootstrap.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="js/local_jquery.js"></script>
+    </head>
+    <body class="bg-light">
+        <div class="container">
+        <div class="py-5 text-center">
+            <h2>Формування шаблонів відстеження</h2>
+            <p class="lead">Вкажіть данні у формі та натисніть кнопку</p>
+        </div>
+        <form>
+            <div class="mb-3">
+                <label for="input_patterns_1">Шаблон відстеження</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Promo code">
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-secondary">Redeem</button>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">@</span>
+                    </div>
+                    <input type="text" class="form-control" id="input_patterns_1" placeholder="https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?ulp={lpurl}&pt=1" required>
+                    <div class="invalid-feedback" style="width: 100%;">
+                        Your username is required.
                     </div>
                 </div>
-            </form>
-        </div>
-        <div class="col-md-8 order-md-1">
-            <h4 class="mb-3">Вкажіть шаблоні відстеження</h4>
-            <form class="needs-validation" novalidate>
-                <!--
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="firstName">First name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Valid first name is required.
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="lastName">Last name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Valid last name is required.
-                        </div>
-                    </div>
-                </div>
-
-                -->
-
-                <div class="mb-3">
-                    <label for="username">Шаблон відстеження</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">@</span>
-                        </div>
-                        <input type="text" class="form-control" id="input_patterns_1" placeholder="https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?ulp={lpurl}&pt=1" required>
-                        <div class="invalid-feedback" style="width: 100%;">
-                            Your username is required.
-                        </div>
-                    </div>
-                </div>
-<!--
-
-    -->
-
-
-<!--
-                <div class="mb-3">
-                    <label for="username">Суффікс кінцевого URL</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">@</span>
-                        </div>
-                        <input type="text" class="form-control" id="username" placeholder="tagtag_uid={gclid}&utm_source=admitad&utm_content=1931381" required>
-                        <div class="invalid-feedback" style="width: 100%;">
-                            Your username is required.
-                        </div>
-                    </div>
-                </div>
--->
-                <div class="mb-3">
-                    <label for="username">Номер аккаунту</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">@</span>
-                        </div>
-                        <input type="text" class="form-control" id="input_code" placeholder="865-829-6080" required>
-                        <div class="invalid-feedback" style="width: 100%;">
-                            Your username is required.
-                        </div>
-                    </div>
-                </div>
-
-
-                <!--
-                <div class="mb-3">
-                    <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                    <div class="invalid-feedback">
-                        Please enter a valid email address for shipping updates.
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-                    <div class="invalid-feedback">
-                        Please enter your shipping address.
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-                    <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-                </div>
-
-                -->
-
-                <!--
-                <div class="row">
-                    <div class="col-md-5 mb-3">
-                        <label for="country">Country</label>
-                        <select class="custom-select d-block w-100" id="country" required>
-                            <option value="">Choose...</option>
-                            <option>United States</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please select a valid country.
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="state">State</label>
-                        <select class="custom-select d-block w-100" id="state" required>
-                            <option value="">Choose...</option>
-                            <option>California</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please provide a valid state.
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="zip">Zip</label>
-                        <input type="text" class="form-control" id="zip" placeholder="" required>
-                        <div class="invalid-feedback">
-                            Zip code required.
-                        </div>
-                    </div>
-                </div>
-                -->
-                <!--
-                <hr class="mb-4">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="same-address">
-                    <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-                </div>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="save-info">
-                    <label class="custom-control-label" for="save-info">Save this information for next time</label>
-                </div>
-
-                <hr class="mb-4">
-                                -->
-
-                <h4 class="mb-3">Тип РК</h4>
-
-                <div class="d-block my-2">
-                    <div class="custom-control custom-radio">
-                        <input id="credit" name="input_type" type="radio" class="custom-control-input" value="cd" checked required>
-                        <label class="custom-control-label" for="credit">Динаміка</label>
-                    </div>
-                    <div class="custom-control custom-radio">
-                        <input id="debit" name="input_type" type="radio" class="custom-control-input" value="cc" required>
-                        <label class="custom-control-label" for="debit">Контекст</label>
-                    </div>
-                    <!--
-                    <div class="custom-control custom-radio">
-                        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                        <label class="custom-control-label" for="paypal">Paypal</label>
-                    </div>
-                    -->
-                </div>
-                <!--
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="cc-name">Name on card</label>
-                        <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                        <small class="text-muted">Full name as displayed on card</small>
-                        <div class="invalid-feedback">
-                            Name on card is required
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="cc-number">Credit card number</label>
-                        <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                        <div class="invalid-feedback">
-                            Credit card number is required
-                        </div>
-                    </div>
-                </div>
-                -->
-                <!--
-                <div class="row">
-                    <div class="col-md-3 mb-3">
-                        <label for="cc-expiration">Expiration</label>
-                        <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                        <div class="invalid-feedback">
-                            Expiration date required
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="cc-expiration">CVV</label>
-                        <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                        <div class="invalid-feedback">
-                            Security code required
-                        </div>
-                    </div>
-                </div>
-       -->
-                <hr class="mb-4">
-
-
-    <div class="mb-3">
-        <label for="username">Сформований шаблон відстеження</label>
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">@</span>
             </div>
-            <input type="text" class="form-control" id="outResult" placeholder="https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?subid3=(865-829-6080)-cd&ulp={lpurl}&pt=1" required>
-            <div class="invalid-feedback" style="width: 100%;">
-                Your username is required.
+            <div class="mb-3">
+                <label for="input_code">Номер аккаунту</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">@</span>
+                    </div>
+                    <input type="text" class="form-control" id="input_code" placeholder="865-829-6080" required>
+                    <div class="invalid-feedback" style="width: 100%;">
+                        Your username is required.
+                    </div>
+                </div>
             </div>
-        </div>
+            <div class="mb-3">
+                <label for="input_type">Тип</label>
+                <div class="input-group">
+                    <div class="custom-control custom-radio">
+                        <input id="input_type" name="input_type" type="radio" class="custom-control-input" value="cd" checked required>
+                        <label class="custom-control-label" for="input_type">Динаміка</label>
+                    </div>
+                    <div class="custom-control custom-radio"></div>
+
+                    <div class="custom-control custom-radio">
+                        <input id="input_type_2" name="input_type" type="radio" class="custom-control-input" value="cc" required>
+                        <label class="custom-control-label" for="input_type_2">Контекст</label>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit" id="getResult">Сформувати шаблон</button>
+            <div class="mb-3">
+                <label for="outResult">Сформований шаблон відстеження</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">@</span>
+                    </div>
+                    <input type="text" class="form-control" id="outResult" placeholder="https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?subid3=(865-829-6080)-cd&ulp={lpurl}&pt=1" required>
+                    <div class="invalid-feedback" style="width: 100%;">
+                        Your username is required.
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
-                <button class="btn btn-primary btn-lg btn-block" type="submit" id="getResult">Сформувати шаблон</button>
-            </form>
-        </div>
-    </div>
--->
 
     <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">&copy; 2022 BMG</p>
+        <!--
         <ul class="list-inline">
             <li class="list-inline-item"><a href="#">Privacy</a></li>
             <li class="list-inline-item"><a href="#">Terms</a></li>
             <li class="list-inline-item"><a href="#">Support</a></li>
         </ul>
+        -->
     </footer>
 </div>
-
-
-<script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-
-    /**
-     * Тестування гілки B_01_t_02
-     * */
-
-    /**
-     *
-     *  https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?ulp={lpurl}&pt=1
-
-        865-829-6080
-
-        https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?subid3=(865-829-6080)-cd&ulp={lpurl}&pt=1
-     *
-     * */
-    (function() {
-        'use strict';
-
-        /**
-         * макс тест
-        **/
-
-        /**
-         * макс тест 2
-         **/
-
-        alert( "Handler for .submit() called." );
-
-
-
-
-        $( "#other" ).click(function() {
-            $( "#target" ).submit();
-        });
-
-
-
-
-        $("#getResult").click(function() {
-
-            //var test_url_1 = "https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?ulp={lpurl}&pt=1";
-          //  $('#input_patterns_1').val("https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?ulp={lpurl}&pt=1")
-          //  $('#input_code').val("865-829-6080");
-
-            var test_url_1 = $('#input_patterns_1').val();
-            var test_acc_code = $('#input_code').val();
-
-            var admitad_url = test_url_1.substr(0,55);
-            var admitad_url_params = test_url_1.substr(57);
-
-
-            //var input_type = $('name="input_type"').val();
-            //var input_type = 'cd';
-
-            var input_type = $('input[name=input_type]:checked').val()
-
-            //name="input_code"
-            console.log('input_type: '+ input_type);
-
-            console.log('test_url_1: '+ test_url_1);
-            console.log('test_acc_code: '+ test_acc_code);
-
-            console.log('admitad_url: '+ admitad_url);
-            console.log('admitad_url_params: '+ admitad_url_params);
-
-            var result = admitad_url+'/?subid3=('+test_acc_code+')-'+input_type+'&'+admitad_url_params;
-
-            console.log('result: '+ result);
-
-            //var test_acc_code = "";
-            //var test_tesult =   "https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?subid3=(865-829-6080)-cd&ulp={lpurl}&pt=1";  //https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?subid3=(865-829-6080)-cd&ulp={lpurl}&pt=1
-
-            /*
-            var admitad_url = test_tesult.substr(0,55);
-            var admitad_url_params = test_tesult.substr(56);
-            var type = 'cd';
-
-            var result = admitad_url+'/'+admitad_url_params;
-            */
-
-
-
-
-            $("#outResult").val(result).select();
-
-
-            //var copyText = document.getElementById("#outResult");
-            //console.log('test');
-            //console.log("Hello from Firefox code"); //output messages to the console</pre>
-            //copyText.select();
-
-            //document.execCommand("copy");
-            //alert("Copied the text: " + copyText);
-
-
-
-
-            if (document.execCommand('copy')) {
-                //console.log('coping...');
-
-
-                //var result = admitad_url+'/?subid3=('+test_acc_code+')'+'-'+type;//+admitad_url_params;
-
-                //result
-                //alert(admitad_url.split('?')) ;// массив [12, 34, 56]
-
-                //console.log('admitad_url: '+ admitad_url);
-                //console.log('admitad_url_params: '+ admitad_url_params);
-
-
-                //console.log(test_url_1);
-                //console.log('admitad_url: '  + admitad_url);
-                //console.log('admitad_url_params: '+ admitad_url_params);
-
-
-
-
-
-                //console.log('result: ' + result);
-                //test_url_1
-                //test_acc_code
-                //test_tesult
-                //console.log( "Result coped to memory" );
-                //alert("Result coped to memory");
-            }
-
-            event.preventDefault();
-        });
-
-/*
-        window.addEventListener('load', function() {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-                form.addEventListener('submit', function(event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-
-        */
-
-    })();
-</script>
 </body>
 </html>
