@@ -48,3 +48,13 @@
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
 }
+
+.help-block {
+    position: absolute;
+    color: red;
+    margin: -70px 0px 0px 40%;
+}
+
+.panel-title{
+    color: red;
+}

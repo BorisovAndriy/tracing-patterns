@@ -10,6 +10,7 @@
         <script src="js/jquery-3.6.1.min.js"></script>
         <script src="bootstrap/js/bootstrap.js"></script>
         <script src="js/jquery.validate.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
         <script src="js/local_jquery.js"></script>
     </head>
     <body class="bg-light">
@@ -18,59 +19,47 @@
             <h2>Формування шаблонів відстеження</h2>
             <p class="lead">Вкажіть данні у формі та натисніть кнопку</p>
         </div>
-        <form>
-            <div class="mb-3">
-                <label for="input_patterns_1">Шаблон відстеження</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">@</span>
-                    </div>
-                    <input type="text" class="form-control" id="input_patterns_1" placeholder="https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?ulp={lpurl}&pt=1" required>
-                    <div class="invalid-feedback" style="width: 100%;">
-                        Your username is required.
-                    </div>
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="input_code">Номер аккаунту</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">@</span>
-                    </div>
-                    <input type="text" class="form-control" id="input_code" placeholder="865-829-6080" required>
-                    <div class="invalid-feedback" style="width: 100%;">
-                        Your username is required.
-                    </div>
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="input_type">Тип</label>
-                <div class="input-group">
-                    <div class="custom-control custom-radio">
-                        <input id="input_type" name="input_type" type="radio" class="custom-control-input" value="cd" checked required>
-                        <label class="custom-control-label" for="input_type">Динаміка</label>
-                    </div>
-                    <div class="custom-control custom-radio"></div>
 
+        <form id="signupForm1" method="post" class="form-horizontal" action="">
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="pattern1">Шаблон відстеження</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" id="pattern1" name="pattern1" placeholder="https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?ulp={lpurl}&pt=1" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="accountCode">Номер аккаунту</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" id="accountCode" name="accountCode" placeholder="865-829-6080" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="companyType">Тип</label>
+                <div class="col-sm-12 form-check form-check-inline">
+                    <div class="custom-control custom-radio" style="">
+                        <input id="companyType" name="companyType" type="radio" class="custom-control-input form-check-input" value="cd" checked required>
+                        <label class="custom-control-label form-check-label" for="companyType">Динаміка</label>
+                    </div>
                     <div class="custom-control custom-radio">
-                        <input id="input_type_2" name="input_type" type="radio" class="custom-control-input" value="cc" required>
-                        <label class="custom-control-label" for="input_type_2">Контекст</label>
+                        <input id="companyType2" name="companyType" type="radio" class="custom-control-input form-check-input" value="cc" required>
+                        <label class="custom-control-label form-check-label" for="companyType2">Контекст</label>
                     </div>
                 </div>
             </div>
 
-            <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit" id="getResult">Сформувати шаблон</button>
-            <div class="mb-3">
-                <label for="outResult">Сформований шаблон відстеження</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">@</span>
+            <div class="form-group">
+                <div class="col-sm-12 col-sm-offset-12">
+                    <div class="col-sm-12">
+                        <button class="btn btn-primary btn-lg btn-block" type="submit" id="getResult">Сформувати шаблон</button>
                     </div>
-                    <input type="text" class="form-control" id="outResult" placeholder="https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?subid3=(865-829-6080)-cd&ulp={lpurl}&pt=1" required>
-                    <div class="invalid-feedback" style="width: 100%;">
-                        Your username is required.
-                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="outResult">Сформований шаблон відстеження</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" id="outResult" placeholder="https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?subid3=(865-829-6080)-cd&ulp={lpurl}&pt=1">
                 </div>
             </div>
         </form>
