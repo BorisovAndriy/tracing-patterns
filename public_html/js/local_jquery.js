@@ -4,8 +4,11 @@ $(document).ready(function(){
         /**
          * Тестові дефолтні дані
          * */
+        /*
         $('#pattern1').val("https://ad.admitad.com/g/jjx7myox8ff2a34fb9f3af9e6cb3ff/?ulp={lpurl}&pt=1")
         $('#accountCode').val("865-829-6080");
+
+         */
 
         $("#accountCode").mask("999-999-9999");
         /**
