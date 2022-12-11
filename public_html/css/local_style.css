@@ -58,6 +58,12 @@
 .panel-title{
     color: red;
 }
+label.control-label,
+label.custom-control-label,
+.form-horizontal .btn
+{
+    color: yellow;
+}
 
 .form-bg{
     background: linear-gradient(to right,#014d6f 10%,#2b8e8b);
@@ -125,4 +131,19 @@
     .check + label{
         width: 48%;
     }
+}
+.form-horizontal .btn
+{
+    color: yellow;
+}
+.custom-radio{
+    margin: 0px 20px 0px 0px;
+}
+.form-check-inline{
+    margin: 0px 0px 0px 20px;
+}
+form{
+    padding: 4px;
+    border-radius: 4px;
+    box-shadow: 8px 8px 8px greenyellow, -8px -8px 8px greenyellow;
 }
