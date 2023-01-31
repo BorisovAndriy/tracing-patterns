@@ -10,6 +10,7 @@
         <script src="js/jquery-3.6.1.min.js"></script>
         <script src="bootstrap/js/bootstrap.js"></script>
         <script src="js/jquery.validate.min.js"></script>
+        <!-- Скачати jquery.maskedinput.min.js бібліотеку офлайн і підлючити -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
         <script src="js/local_jquery.js"></script>
     </head>
@@ -35,15 +36,20 @@
             </div>
 
             <div class="form-group">
-                <label class="col-sm-4 control-label" for="companyType">Тип</label>
+                <label class="col-sm-4 control-label" for="companyType">Тип та Пошукова фраза</label>
                 <div class="col-sm-12 form-check form-check-inline">
+                    <div class="custom-control custom-radio">
+                        <input id="companyType2" name="companyType" type="radio" class="custom-control-input form-check-input" value="cc" checked required>
+                        <label class="custom-control-label form-check-label" for="companyType2">Контекст</label>
+                    </div>
                     <div class="custom-control custom-radio" style="">
-                        <input id="companyType" name="companyType" type="radio" class="custom-control-input form-check-input" value="cd" checked required>
+                        <input id="companyType" name="companyType" type="radio" class="custom-control-input form-check-input" value="cd"  required>
                         <label class="custom-control-label form-check-label" for="companyType">Динаміка</label>
                     </div>
+
                     <div class="custom-control custom-radio">
-                        <input id="companyType2" name="companyType" type="radio" class="custom-control-input form-check-input" value="cc" required>
-                        <label class="custom-control-label form-check-label" for="companyType2">Контекст</label>
+                        <input id="keyword" name="keyword" type="checkbox" class="custom-control-input form-check-inline-input" value="true" checked>
+                        <label class="custom-control-label form-check-label" for="keyword">Пошукова фраза</label>
                     </div>
                 </div>
             </div>

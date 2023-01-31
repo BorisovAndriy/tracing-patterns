@@ -77,7 +77,13 @@ $(document).ready(function(){
                 var admitad_url = url_1.substr(0,55);
                 var admitad_url_params = url_1.substr(57);
                 var input_type = $('input[name=companyType]:checked').val();
-                var result = admitad_url+'/?subid3=('+acc_code+')-'+input_type+'&'+admitad_url_params;
+
+                /**
+                 * sub_id_1 string повертає ключову фразу запит користувача Гугл в статистику АдміТад через параметр subid1
+                 * */
+                var sub_id_1 = $('input[name=keyword]:checked').val() ? '&subid3={keyword}' : '';
+
+                var result = admitad_url+'/?subid3=('+acc_code+')-'+input_type+'&'+admitad_url_params+sub_id_1;
                 $("#outResult").val(result).select();
 
                 if (document.execCommand('copy')) {};
